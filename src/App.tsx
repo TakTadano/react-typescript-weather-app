@@ -35,6 +35,7 @@ function App() {
           icon: data.current.condition.icon 
         })
       }) //dataの中に気象データ入っている
+      .catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"))
   }
   return (
     <div className="wrapper">
