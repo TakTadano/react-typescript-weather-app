@@ -13,7 +13,7 @@ type ResultsStateType = {
 const Results = ({results}: ResultsStateType) => {
     const { country, cityName, temperature, conditionText, icon } = results;
     return (
-        <div>
+        <>
             {country && <div>{country}</div>} 
             {cityName && <div>{cityName}</div>}
             {temperature && <div>{temperature}<span>℃</span></div>}
@@ -23,7 +23,7 @@ const Results = ({results}: ResultsStateType) => {
                     <span>{conditionText}</span>
                 </div>
             }
-        </div>
+        </>
     );
 };
 

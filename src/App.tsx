@@ -14,7 +14,7 @@ type ResultsStateType = {
 }
 
 function App() {
-  const [city, setCity] = useState<string>();  
+  const [city, setCity] = useState<string>("");  
   const [results, setResults] = useState<ResultsStateType>({
     country: "",
     cityName: "",
@@ -34,14 +34,19 @@ function App() {
           conditionText: data.current.condition.text,
           icon: data.current.condition.icon 
         })
+        setCity(""); 
       }) //dataの中に気象データ入っている
-      .catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"))
+      .catch(err => {
+        alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。")
+        setCity("");
+      }
+        )
   }
   return (
     <div className="wrapper">
       <div className="container">
         <Title />
-        <Form setCity={setCity} getWeather={getWeather} />
+        <Form getWeather={getWeather} setCity={setCity} city={city} /> 
         <Result results={results} />
       </div>
     </div>
